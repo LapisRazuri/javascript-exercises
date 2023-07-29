@@ -1,10 +1,16 @@
-const removeFromArray = function ( array, element, anotherelement ) {
-        for ( let i = 0; i <= array.length; i++ ) {
-            if ( array[i] == element || array[i] == anotherelement ) {
-                array.splice( i , 1 );
+const removeFromArray = function ( array, ...args ) {
+            for (let j = 0; j < args.length; j++ ) {
+
+                for ( let i = 0; i < array.length; i++ ) {
+                    if ( args[j] === array[i] ) {
+                        array.splice( i , 1 );
+                        j--;
+                        break;
+                    }
+                }
+
             }
-        }
-        return array;
+            return array;
 };
 
 
